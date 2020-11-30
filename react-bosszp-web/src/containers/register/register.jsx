@@ -16,8 +16,6 @@ class Register extends Component {
     };
   }
   handleChange=(name,value)=>{
-    console.log(name);
-    console.log([name]);
    this.setState({
      [name]:value  // 属性名不是name, 而是name变量的值
    })
