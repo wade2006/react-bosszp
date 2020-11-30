@@ -21,7 +21,11 @@
 
 ![QQ截图20201130110545.png](https://i.loli.net/2020/11/30/GUWwAguLnNvbaKQ.png)
 
+​                                                                                                                             注册界面
+
 ![QQ截图20201130110559.png](https://i.loli.net/2020/11/30/ZEkKxgdYoBqTPW5.png)
+
+​                                                                                                                                      登录界面
 
     1). 创建3个1级路由: main/login/register
     2). 完成登陆/注册的静态组件
@@ -29,33 +33,7 @@
         路由跳转: this.props.history.replace('/login')
         收集表单输入数据: state/onChange/变量属性名
 
-## 5. 实现简单后台
-    1). 使用webstorm创建基于node+express的后台应用
-    2). 根据需求编写后台路由
-    3). 使用postman测试后台接口
-    4). 使用nodemon实现后台应用的自动重启动
-    5). 路由回调函数的3步: 读取请求参数/处理/返回响应数据
-
-
-​    
-# day02
-## 1. 使用mongoose操作数据库
-    1). 连接数据库
-    2). 定义schema和Model
-    3). 通过Model函数对象或Model的实例的方法对集合数据进行CRUD操作 
-
-## 2. 注册/登陆后台处理
-    1). models.js
-        连接数据库: mongoose.connect(url)
-        定义文档结构: schema
-        定义操作集合的model: UserModel
-    2). routes/index.js
-        根据接口编写路由的定义
-        注册: 流程
-        登陆: 流程
-        响应数据结构: {code: 0, data: user}, {code: 1, msg: 'xxx'}
-
-## 3. 注册/登陆前台处理
+## 4. 注册/登陆前台处理
     1). ajax
         ajax请求函数(通用): 使用axios库, 返回的是promise对象
         后台接口请求函数: 针对具体接口定义的ajax请求函数, 返回的是promise对象
@@ -84,86 +62,139 @@
               {action1, action2}
             )(UI组件)
 
-# day03
-## 1. 实现user信息完善功能
-    1). 用户信息完善界面路由组件: 
-        组件: dashen-info/laoban-info/header-selector
-        界面: Navbar/List/Grid/InputItem/Button/TextareaItem
-        收集用户输入数据: onChange监听/state 
-        注册2级路由: 在main路由组件
-    2). 登陆/注册成功后的跳转路由计算
-        定义工具函数
-        计算逻辑分析
-    3). 后台路由处理
-    4). 前台接口请求函数
-    5). 前台redux
-        action-types
-        异步action/同步action
-        reducer
-    6). 前台组件
-        UI组件包装生成容器组件
-        读取状态数据
-        更新状态
+##    5.用户信息完善界面
 
-## 2. 搭建整体界面(上)
-    1). 登陆状态维护
-        后台将userid保存到cookie中
-        前台读取cookie中的userid
-        redux中管理user信息状态
-        
-    2). 实现自动登陆
-        整体逻辑分析
-        ajax请求根据cookie中的userid查询获取对应的user信息
+![QQ截图20201130111916.png](https://i.loli.net/2020/11/30/SDaJ2AviTr39RjZ.png)
 
-# day04
-## 1. 搭建整体界面(下)
-    封装导航路由相关数据(数组/对象)
-    抽取底部导航组件
-    非路由组件使用路由组件API
+​                                                                                                                         boss信息完善界面
 
-## 2. 个人中心
-    读取user信息显示
-    退出登陆
+![QQ截图20201130111643.png](https://i.loli.net/2020/11/30/UNPYsoZ6bhO2KIm.png)
 
-## 3. 用户列表
-    为大神/老板列表组件抽取用户列表组件
-    异步读取指定类型用户列表数据
-        后台路由
-        api
-        redux
-        component
+​                                                                                                                                求职者信息完善界面
 
-## 4. socket.io
-    实现实时聊天的库
-    包装的H5 WebSocket和轮询---> 兼容性/编码简洁性
-    包含2个包:
-      socket.io: 用于服务器端
-      socket.io-client: 用于客户端
-    基本思想: 远程自定义事件机制
-        on(name, function(data){}): 绑定监听
-        emit(name, data): 发送消息
-        
-        io: 服务器端核心的管理对象
-        socket: 客户端与服务器的连接对象
+```
+1). 用户信息完善界面路由组件: 
+    组件: jobhunter-info/boss-info/header-selector
+    界面: Navbar/List/Grid/InputItem/Button/TextareaItem
+    收集用户输入数据: onChange监听/state 
+    注册2级路由: 在main路由组件
+2). 登陆/注册成功后的跳转路由计算
+    定义工具函数
+    计算逻辑分析
+3). 后台路由处理
+4). 前台接口请求函数
+5). 前台redux
+    action-types
+    异步action/同步action
+    reducer
+6). 前台组件
+    UI组件包装生成容器组件
+    读取状态数据
+    更新状态
+```
 
-# day05
-## 1. 聊天组件功能:
-    后台接口
-    chat静态组件
-    发送消息与接收消息
-    获取消息列表显示
-    接收消息显示
-    完善列表显示
+## 6.搭建整体界面
 
-# day06
-## 1. 消息列表
-    对消息进行分组保存, 且只保存每个组最后一条消息
-    对于对象容器和数组容器的选择
-    数组排序
+```
+1). 登陆状态维护
+    后台将userid保存到cookie中
+    前台读取cookie中的userid
+    redux中管理user信息状态
+    
+2). 实现自动登陆
+    整体逻辑分析
+    ajax请求根据cookie中的userid查询获取对应的user信息
+```
 
-## 2. 未读消息数量显示 
-    每个组的未读数量统计
-    总未读数量统计显示
-    查看消息后, 更新未读数量
+## 7.用户列表界面
 
-## 3. 自定义redux和react-redux
+![QQ截图20201130112905.png](https://i.loli.net/2020/11/30/rn4WAzdbDgtMZvj.png)
+
+​                                                                                                                                求职者列表界面
+
+![QQ截图20201130112841.png](https://i.loli.net/2020/11/30/SYDt5lJ4nsmOoe8.png)
+
+​                                                                                                                                  boss列表界面
+
+```
+为求职者/老板列表组件抽取用户列表组件
+用户是求职者的话显示boss列表，用户是boss的话显示求职者列表。
+界面: antd-mobile里的Navbar/List/Card/WhiteSpace/WingBlank组件
+     QueueAnim实现动画效果
+异步读取指定类型用户列表数据
+    后台路由
+    api
+    redux
+    component
+```
+
+## 8.个人中心界面
+
+![QQ截图20201130113610.png](https://i.loli.net/2020/11/30/nyBZlWPfcDEakvU.png)
+
+​                                                                                                                                老板个人中心界面
+
+![QQ截图20201130113554.png](https://i.loli.net/2020/11/30/hCynf6r7B3AUjXl.png)
+
+​                                                                                                                             求职者个人中心界面
+
+![QQ截图20201130113925.png](https://i.loli.net/2020/11/30/tbXnkQhMx9o4HZA.png)
+
+​                                                                                                                                退出登录界面
+
+```
+1). 个人中心界面路由组件: 
+    组件: personal
+    界面: Navbar/Modal/Result/List/Button/Brief
+    
+```
+
+## 9.聊天组件功能
+
+![QQ截图20201130114322.png](https://i.loli.net/2020/11/30/3dE8NS4u9XmYCMs.png)
+
+​                                                                                                                                求职者和boss聊天界面
+
+![QQ截图20201130114737.png](https://i.loli.net/2020/11/30/fWeIp9tBzHGw3k4.png)
+
+​                                                                                                                                   聊天表情界面
+
+```
+1). 聊天界面路由组件: 
+    组件: chat
+    界面: Navbar/List/InputItem/Grid
+    聊天表情地址链接：https://emojipedia.org/people/
+ 2）.实现实时聊天的库socket.io
+包装的H5 WebSocket和轮询---> 兼容性/编码简洁性
+包含2个包:
+  socket.io: 用于服务器端
+  socket.io-client: 用于客户端
+基本思想: 远程自定义事件机制
+    on(name, function(data){}): 绑定监听
+    emit(name, data): 发送消息
+    io: 服务器端核心的管理对象
+    socket: 客户端与服务器的连接对象
+    参考文档地址：
+    https://socket.io/get-started/chat/ 
+    http://blog.csdn.net/neuq_zxy/article/details/77531126
+```
+
+## 10.消息列表界面
+
+![QQ截图20201130131041.png](https://i.loli.net/2020/11/30/FiT5aEpvb9VrJLS.png)
+
+​                                                                                                                                 消息列表界面
+
+```
+1). 消息列表界面路由组件: 
+    组件: message
+    界面: Navbar/List/Badge
+   实现：
+   1.对消息进行分组保存, 且只保存每个组最后一条消息
+   2.对于对象容器和数组容器的选择
+   3.数组排序
+```
+
+
+
+## 
